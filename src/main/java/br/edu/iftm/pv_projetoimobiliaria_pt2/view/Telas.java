@@ -1,5 +1,9 @@
 package br.edu.iftm.pv_projetoimobiliaria_pt2.view;
 
+import java.awt.CardLayout;
+import java.awt.Graphics;
+import javax.swing.ImageIcon;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -10,12 +14,21 @@ package br.edu.iftm.pv_projetoimobiliaria_pt2.view;
  * @author AFSOUZA
  */
 public class Telas extends javax.swing.JFrame {
+    
+      
+    CardLayout cl;
+ 
+
+
 
     /**
      * Creates new form Telas
      */
     public Telas() {
         initComponents();
+    
+        CardLayout cl = (CardLayout) MainPanel.getLayout();
+        cl.show(MainPanel, "SistemaTelaInicial");
     }
 
     /**
@@ -30,18 +43,38 @@ public class Telas extends javax.swing.JFrame {
         MainPanel = new javax.swing.JPanel();
         SistemaTelaInicial = new javax.swing.JPanel();
         lbSistema = new javax.swing.JLabel();
+        jlBoasVindas = new javax.swing.JLabel();
+        pnLogo = new javax.swing.JPanel();
         UsuarioCriarEditar = new javax.swing.JPanel();
         lbUsuarioCriar = new javax.swing.JLabel();
         UsuarioExcluirListar = new javax.swing.JPanel();
         lbUsuarioExcluir = new javax.swing.JLabel();
+        pnListarUsuarios = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbUsuarioTabela = new javax.swing.JTable();
+        btUsuarioListar = new javax.swing.JButton();
+        btUsuarioEditar = new javax.swing.JButton();
+        btUsuarioExcluir = new javax.swing.JButton();
         ContratoCriarEditar = new javax.swing.JPanel();
         lbTituloContratoCriar = new javax.swing.JLabel();
         ContratoExcluirListar = new javax.swing.JPanel();
         lbTituloContratoExcluir = new javax.swing.JLabel();
+        pnListarContratos = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbContratoTabela = new javax.swing.JTable();
+        btContratoListar = new javax.swing.JButton();
+        btContratoEditar = new javax.swing.JButton();
+        btContratoExcluir = new javax.swing.JButton();
         ImovelCriarEditar = new javax.swing.JPanel();
         lbTituloImovelCriar = new javax.swing.JLabel();
         ImovelExcluirListar = new javax.swing.JPanel();
         lbTituloImovelExcluir = new javax.swing.JLabel();
+        pnListarImóvel = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbContratoTabela1 = new javax.swing.JTable();
+        btContratoListar1 = new javax.swing.JButton();
+        btContratoEditar1 = new javax.swing.JButton();
+        btContratoExcluir1 = new javax.swing.JButton();
         jMenuBar = new javax.swing.JMenuBar();
         jmSistema = new javax.swing.JMenu();
         jmSistemaTelaInicial = new javax.swing.JMenuItem();
@@ -65,9 +98,30 @@ public class Telas extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1280, 720));
 
         MainPanel.setPreferredSize(new java.awt.Dimension(1280, 720));
+        MainPanel.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                MainPanelComponentAdded(evt);
+            }
+        });
         MainPanel.setLayout(new java.awt.CardLayout());
 
         lbSistema.setText("Card - Tela Inicial");
+
+        jlBoasVindas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jlBoasVindas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlBoasVindas.setText("<html>Bem-vindo ao Sistema de <br>Gerenciamento de  Imobiliárias - IMOB</html>");
+        jlBoasVindas.setToolTipText("");
+
+        javax.swing.GroupLayout pnLogoLayout = new javax.swing.GroupLayout(pnLogo);
+        pnLogo.setLayout(pnLogoLayout);
+        pnLogoLayout.setHorizontalGroup(
+            pnLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        pnLogoLayout.setVerticalGroup(
+            pnLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout SistemaTelaInicialLayout = new javax.swing.GroupLayout(SistemaTelaInicial);
         SistemaTelaInicial.setLayout(SistemaTelaInicialLayout);
@@ -75,18 +129,32 @@ public class Telas extends javax.swing.JFrame {
             SistemaTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SistemaTelaInicialLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbSistema)
-                .addContainerGap(1183, Short.MAX_VALUE))
+                .addGroup(SistemaTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SistemaTelaInicialLayout.createSequentialGroup()
+                        .addComponent(lbSistema)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SistemaTelaInicialLayout.createSequentialGroup()
+                        .addGap(0, 362, Short.MAX_VALUE)
+                        .addComponent(jlBoasVindas, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(326, 326, 326))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SistemaTelaInicialLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(582, 582, 582))
         );
         SistemaTelaInicialLayout.setVerticalGroup(
             SistemaTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SistemaTelaInicialLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbSistema)
-                .addContainerGap(698, Short.MAX_VALUE))
+                .addGap(58, 58, 58)
+                .addComponent(jlBoasVindas, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pnLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(419, Short.MAX_VALUE))
         );
 
-        MainPanel.add(SistemaTelaInicial, "card2");
+        MainPanel.add(SistemaTelaInicial, "SistemaTelaInicial");
 
         lbUsuarioCriar.setText("Card - Usuário");
 
@@ -107,9 +175,65 @@ public class Telas extends javax.swing.JFrame {
                 .addContainerGap(698, Short.MAX_VALUE))
         );
 
-        MainPanel.add(UsuarioCriarEditar, "card2");
+        MainPanel.add(UsuarioCriarEditar, "UsuarioCriarEditar");
 
         lbUsuarioExcluir.setText("Card - Usuario Editar/Listar/Excluir");
+
+        pnListarUsuarios.setBorder(javax.swing.BorderFactory.createTitledBorder("Listar Usuários"));
+
+        tbUsuarioTabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "UserName", "Nome", "Senha"
+            }
+        ));
+        jScrollPane1.setViewportView(tbUsuarioTabela);
+
+        btUsuarioListar.setText("Listar Usuários");
+
+        btUsuarioEditar.setText("Editar");
+
+        btUsuarioExcluir.setText("Excluir");
+
+        javax.swing.GroupLayout pnListarUsuariosLayout = new javax.swing.GroupLayout(pnListarUsuarios);
+        pnListarUsuarios.setLayout(pnListarUsuariosLayout);
+        pnListarUsuariosLayout.setHorizontalGroup(
+            pnListarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnListarUsuariosLayout.createSequentialGroup()
+                .addGroup(pnListarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnListarUsuariosLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btUsuarioEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btUsuarioExcluir))
+                    .addGroup(pnListarUsuariosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btUsuarioListar)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnListarUsuariosLayout.createSequentialGroup()
+                .addGap(0, 85, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76))
+        );
+        pnListarUsuariosLayout.setVerticalGroup(
+            pnListarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnListarUsuariosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btUsuarioListar)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                .addGroup(pnListarUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btUsuarioExcluir)
+                    .addComponent(btUsuarioEditar))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout UsuarioExcluirListarLayout = new javax.swing.GroupLayout(UsuarioExcluirListar);
         UsuarioExcluirListar.setLayout(UsuarioExcluirListarLayout);
@@ -118,17 +242,23 @@ public class Telas extends javax.swing.JFrame {
             .addGroup(UsuarioExcluirListarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbUsuarioExcluir)
-                .addContainerGap(1092, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UsuarioExcluirListarLayout.createSequentialGroup()
+                .addContainerGap(193, Short.MAX_VALUE)
+                .addComponent(pnListarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(189, 189, 189))
         );
         UsuarioExcluirListarLayout.setVerticalGroup(
             UsuarioExcluirListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(UsuarioExcluirListarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbUsuarioExcluir)
-                .addContainerGap(698, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(pnListarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
-        MainPanel.add(UsuarioExcluirListar, "card2");
+        MainPanel.add(UsuarioExcluirListar, "UsuarioExcluirListar");
 
         lbTituloContratoCriar.setText("Card - Contrato Criar/Editar");
 
@@ -149,9 +279,70 @@ public class Telas extends javax.swing.JFrame {
                 .addContainerGap(698, Short.MAX_VALUE))
         );
 
-        MainPanel.add(ContratoCriarEditar, "card2");
+        MainPanel.add(ContratoCriarEditar, "ContratoCriarEditar");
 
         lbTituloContratoExcluir.setText("Card - Contrato Editar/Listar/Excluir");
+
+        pnListarContratos.setBorder(javax.swing.BorderFactory.createTitledBorder("Listar Contratos"));
+
+        tbContratoTabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "ID_Imóvel", "Cliente", "Data_do_Contrato", "Data_da_Finalização", "Status"
+            }
+        ));
+        jScrollPane2.setViewportView(tbContratoTabela);
+
+        btContratoListar.setText("Listar Contratos");
+
+        btContratoEditar.setText("Editar");
+        btContratoEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btContratoEditarActionPerformed(evt);
+            }
+        });
+
+        btContratoExcluir.setText("Excluir");
+
+        javax.swing.GroupLayout pnListarContratosLayout = new javax.swing.GroupLayout(pnListarContratos);
+        pnListarContratos.setLayout(pnListarContratosLayout);
+        pnListarContratosLayout.setHorizontalGroup(
+            pnListarContratosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnListarContratosLayout.createSequentialGroup()
+                .addGroup(pnListarContratosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnListarContratosLayout.createSequentialGroup()
+                        .addGap(0, 726, Short.MAX_VALUE)
+                        .addComponent(btContratoEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btContratoExcluir))
+                    .addGroup(pnListarContratosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btContratoListar)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnListarContratosLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 842, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
+        );
+        pnListarContratosLayout.setVerticalGroup(
+            pnListarContratosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnListarContratosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btContratoListar)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(pnListarContratosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btContratoExcluir)
+                    .addComponent(btContratoEditar))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout ContratoExcluirListarLayout = new javax.swing.GroupLayout(ContratoExcluirListar);
         ContratoExcluirListar.setLayout(ContratoExcluirListarLayout);
@@ -161,6 +352,11 @@ public class Telas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lbTituloContratoExcluir)
                 .addContainerGap(1085, Short.MAX_VALUE))
+            .addGroup(ContratoExcluirListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ContratoExcluirListarLayout.createSequentialGroup()
+                    .addGap(191, 191, 191)
+                    .addComponent(pnListarContratos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(191, Short.MAX_VALUE)))
         );
         ContratoExcluirListarLayout.setVerticalGroup(
             ContratoExcluirListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,9 +364,14 @@ public class Telas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lbTituloContratoExcluir)
                 .addContainerGap(698, Short.MAX_VALUE))
+            .addGroup(ContratoExcluirListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ContratoExcluirListarLayout.createSequentialGroup()
+                    .addGap(104, 104, 104)
+                    .addComponent(pnListarContratos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(104, Short.MAX_VALUE)))
         );
 
-        MainPanel.add(ContratoExcluirListar, "card2");
+        MainPanel.add(ContratoExcluirListar, "ContratoExcluirListar");
 
         lbTituloImovelCriar.setText("Card - Imovel Criar/Editar");
 
@@ -191,9 +392,70 @@ public class Telas extends javax.swing.JFrame {
                 .addContainerGap(698, Short.MAX_VALUE))
         );
 
-        MainPanel.add(ImovelCriarEditar, "card2");
+        MainPanel.add(ImovelCriarEditar, "ImovelCriarEditar");
 
         lbTituloImovelExcluir.setText("Card - Imovel Editar/Listar/Excluir");
+
+        pnListarImóvel.setBorder(javax.swing.BorderFactory.createTitledBorder("Listar Contratos"));
+
+        tbContratoTabela1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "ID_Imóvel", "Cliente", "Data_do_Contrato", "Data_da_Finalização", "Status"
+            }
+        ));
+        jScrollPane3.setViewportView(tbContratoTabela1);
+
+        btContratoListar1.setText("Listar Contratos");
+
+        btContratoEditar1.setText("Editar");
+        btContratoEditar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btContratoEditar1ActionPerformed(evt);
+            }
+        });
+
+        btContratoExcluir1.setText("Excluir");
+
+        javax.swing.GroupLayout pnListarImóvelLayout = new javax.swing.GroupLayout(pnListarImóvel);
+        pnListarImóvel.setLayout(pnListarImóvelLayout);
+        pnListarImóvelLayout.setHorizontalGroup(
+            pnListarImóvelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnListarImóvelLayout.createSequentialGroup()
+                .addGroup(pnListarImóvelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnListarImóvelLayout.createSequentialGroup()
+                        .addGap(0, 726, Short.MAX_VALUE)
+                        .addComponent(btContratoEditar1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btContratoExcluir1))
+                    .addGroup(pnListarImóvelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btContratoListar1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnListarImóvelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 842, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
+        );
+        pnListarImóvelLayout.setVerticalGroup(
+            pnListarImóvelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnListarImóvelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btContratoListar1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(pnListarImóvelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btContratoExcluir1)
+                    .addComponent(btContratoEditar1))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout ImovelExcluirListarLayout = new javax.swing.GroupLayout(ImovelExcluirListar);
         ImovelExcluirListar.setLayout(ImovelExcluirListarLayout);
@@ -203,6 +465,11 @@ public class Telas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lbTituloImovelExcluir)
                 .addContainerGap(1096, Short.MAX_VALUE))
+            .addGroup(ImovelExcluirListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ImovelExcluirListarLayout.createSequentialGroup()
+                    .addGap(191, 191, 191)
+                    .addComponent(pnListarImóvel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(191, Short.MAX_VALUE)))
         );
         ImovelExcluirListarLayout.setVerticalGroup(
             ImovelExcluirListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,16 +477,31 @@ public class Telas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lbTituloImovelExcluir)
                 .addContainerGap(698, Short.MAX_VALUE))
+            .addGroup(ImovelExcluirListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ImovelExcluirListarLayout.createSequentialGroup()
+                    .addGap(104, 104, 104)
+                    .addComponent(pnListarImóvel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(104, Short.MAX_VALUE)))
         );
 
-        MainPanel.add(ImovelExcluirListar, "card2");
+        MainPanel.add(ImovelExcluirListar, "ImovelExcluirListar");
 
         jmSistema.setText("Sistema");
 
         jmSistemaTelaInicial.setText("Tela Inicial");
+        jmSistemaTelaInicial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmSistemaTelaInicialActionPerformed(evt);
+            }
+        });
         jmSistema.add(jmSistemaTelaInicial);
 
         jmSistemaSair.setText("Sair");
+        jmSistemaSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmSistemaSairActionPerformed(evt);
+            }
+        });
         jmSistema.add(jmSistemaSair);
 
         jMenuBar.add(jmSistema);
@@ -235,6 +517,11 @@ public class Telas extends javax.swing.JFrame {
         jmUsuario.add(jmUsuarioCriar);
 
         jmUsuarioEditar.setText("Listar / Editar / Excluir");
+        jmUsuarioEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmUsuarioEditarActionPerformed(evt);
+            }
+        });
         jmUsuario.add(jmUsuarioEditar);
 
         jMenuBar.add(jmUsuario);
@@ -257,9 +544,19 @@ public class Telas extends javax.swing.JFrame {
         jmImovel.setText("Imóvel");
 
         jmImovelCadastrar.setText("Cadastrar");
+        jmImovelCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmImovelCadastrarActionPerformed(evt);
+            }
+        });
         jmImovel.add(jmImovelCadastrar);
 
         jmImovelEditar.setText("Listar / Editar / Excluir");
+        jmImovelEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmImovelEditarActionPerformed(evt);
+            }
+        });
         jmImovel.add(jmImovelEditar);
 
         jMenuBar.add(jmImovel);
@@ -267,9 +564,19 @@ public class Telas extends javax.swing.JFrame {
         jmContrato.setText("Contrato");
 
         jmContratoCriar.setText("Criar");
+        jmContratoCriar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmContratoCriarActionPerformed(evt);
+            }
+        });
         jmContrato.add(jmContratoCriar);
 
         jmContratoListar.setText("Listar / Editar / Encerrar");
+        jmContratoListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmContratoListarActionPerformed(evt);
+            }
+        });
         jmContrato.add(jmContratoListar);
 
         jMenuBar.add(jmContrato);
@@ -287,16 +594,82 @@ public class Telas extends javax.swing.JFrame {
             .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        MainPanel.getAccessibleContext().setAccessibleName("MainPanel");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+        ImageIcon imagemFundo = new ImageIcon(getClass().getResource("/rentsystem.png"));
+        g.drawImage(imagemFundo.getImage(), 0, 0, getWidth(), getHeight(), this);
+    }
+    
     private void jmUsuarioCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmUsuarioCriarActionPerformed
         // TODO add your handling code here:
+        cl.show(MainPanel, "UsuarioCriarEditar");
+
     }//GEN-LAST:event_jmUsuarioCriarActionPerformed
 
     private void jmClienteEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmClienteEditarActionPerformed
         // TODO add your handling code here:
+        cl.show(MainPanel, "");
+
     }//GEN-LAST:event_jmClienteEditarActionPerformed
+
+    private void btContratoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btContratoEditarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btContratoEditarActionPerformed
+
+    private void btContratoEditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btContratoEditar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btContratoEditar1ActionPerformed
+
+    private void jmSistemaTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSistemaTelaInicialActionPerformed
+        // TODO add your handling code here:
+        cl.show(MainPanel, "SistemaTelaInicial");
+
+    }//GEN-LAST:event_jmSistemaTelaInicialActionPerformed
+
+    private void jmSistemaSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSistemaSairActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jmSistemaSairActionPerformed
+
+    private void jmUsuarioEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmUsuarioEditarActionPerformed
+        // TODO add your handling code here:
+        cl.show(MainPanel, "UsuarioExcluirListar");
+
+    }//GEN-LAST:event_jmUsuarioEditarActionPerformed
+
+    private void jmImovelCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmImovelCadastrarActionPerformed
+        // TODO add your handling code here:
+        cl.show(MainPanel, "ImovelCriarEditar");
+
+    }//GEN-LAST:event_jmImovelCadastrarActionPerformed
+
+    private void jmImovelEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmImovelEditarActionPerformed
+        // TODO add your handling code here:
+        cl.show(MainPanel, "ImovelExcluirListar");
+
+    }//GEN-LAST:event_jmImovelEditarActionPerformed
+
+    private void jmContratoCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmContratoCriarActionPerformed
+        // TODO add your handling code here:
+        cl.show(MainPanel, "ContratoCriarEditar");
+
+    }//GEN-LAST:event_jmContratoCriarActionPerformed
+
+    private void jmContratoListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmContratoListarActionPerformed
+        // TODO add your handling code here:
+        cl.show(MainPanel, "ContratoExcluirListar");
+
+    }//GEN-LAST:event_jmContratoListarActionPerformed
+
+    private void MainPanelComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_MainPanelComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MainPanelComponentAdded
 
     /**
      * @param args the command line arguments
@@ -342,7 +715,20 @@ public class Telas extends javax.swing.JFrame {
     private javax.swing.JPanel SistemaTelaInicial;
     private javax.swing.JPanel UsuarioCriarEditar;
     private javax.swing.JPanel UsuarioExcluirListar;
+    private javax.swing.JButton btContratoEditar;
+    private javax.swing.JButton btContratoEditar1;
+    private javax.swing.JButton btContratoExcluir;
+    private javax.swing.JButton btContratoExcluir1;
+    private javax.swing.JButton btContratoListar;
+    private javax.swing.JButton btContratoListar1;
+    private javax.swing.JButton btUsuarioEditar;
+    private javax.swing.JButton btUsuarioExcluir;
+    private javax.swing.JButton btUsuarioListar;
     private javax.swing.JMenuBar jMenuBar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel jlBoasVindas;
     private javax.swing.JMenu jmCliente;
     private javax.swing.JMenuItem jmClienteCadastrar;
     private javax.swing.JMenuItem jmClienteEditar;
@@ -365,5 +751,12 @@ public class Telas extends javax.swing.JFrame {
     private javax.swing.JLabel lbTituloImovelExcluir;
     private javax.swing.JLabel lbUsuarioCriar;
     private javax.swing.JLabel lbUsuarioExcluir;
+    private javax.swing.JPanel pnListarContratos;
+    private javax.swing.JPanel pnListarImóvel;
+    private javax.swing.JPanel pnListarUsuarios;
+    private javax.swing.JPanel pnLogo;
+    private javax.swing.JTable tbContratoTabela;
+    private javax.swing.JTable tbContratoTabela1;
+    private javax.swing.JTable tbUsuarioTabela;
     // End of variables declaration//GEN-END:variables
 }
