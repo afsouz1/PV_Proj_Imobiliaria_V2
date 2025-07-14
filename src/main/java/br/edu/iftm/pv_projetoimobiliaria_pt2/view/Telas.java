@@ -1,5 +1,8 @@
 package br.edu.iftm.pv_projetoimobiliaria_pt2.view;
 
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -31,15 +34,52 @@ public class Telas extends javax.swing.JFrame {
         SistemaTelaInicial = new javax.swing.JPanel();
         lbSistema = new javax.swing.JLabel();
         UsuarioCriarEditar = new javax.swing.JPanel();
-        lbUsuarioCriar = new javax.swing.JLabel();
+        criarUsuarioPanel = new javax.swing.JPanel();
+        id = new javax.swing.JLabel();
+        cpf = new javax.swing.JLabel();
+        nome = new javax.swing.JLabel();
+        idUsuarioField = new javax.swing.JTextField();
+        nomeField = new javax.swing.JTextField();
+        telefone = new javax.swing.JLabel();
+        enviarUsuarioButton = new javax.swing.JButton();
+        cancelUsuarioButton = new javax.swing.JButton();
+        cpfField = new javax.swing.JFormattedTextField();
+        telefoneField = new javax.swing.JFormattedTextField();
+        lbTituloUsuarioCriar = new javax.swing.JLabel();
         UsuarioExcluirListar = new javax.swing.JPanel();
         lbUsuarioExcluir = new javax.swing.JLabel();
         ContratoCriarEditar = new javax.swing.JPanel();
         lbTituloContratoCriar = new javax.swing.JLabel();
+        criarContratoPanel = new javax.swing.JPanel();
+        idContrato = new javax.swing.JLabel();
+        cpf1 = new javax.swing.JLabel();
+        cliente = new javax.swing.JLabel();
+        idContratoField = new javax.swing.JTextField();
+        imovelContratoField = new javax.swing.JTextField();
+        clienteContratoField = new javax.swing.JTextField();
+        dataContrato = new javax.swing.JLabel();
+        enviarContratoButton = new javax.swing.JButton();
+        cancelContratoButton = new javax.swing.JButton();
+        dataFinalizacao = new javax.swing.JLabel();
+        statusContrato = new javax.swing.JLabel();
+        statusContratoField = new javax.swing.JTextField();
+        dataContratoTextField = new javax.swing.JFormattedTextField();
+        dataFinalContratoTextField = new javax.swing.JFormattedTextField();
         ContratoExcluirListar = new javax.swing.JPanel();
         lbTituloContratoExcluir = new javax.swing.JLabel();
         ImovelCriarEditar = new javax.swing.JPanel();
         lbTituloImovelCriar = new javax.swing.JLabel();
+        criarImovelPanel = new javax.swing.JPanel();
+        idImovel = new javax.swing.JLabel();
+        tipoImovel = new javax.swing.JLabel();
+        precoImovel = new javax.swing.JLabel();
+        enderecoImovel = new javax.swing.JLabel();
+        idImovelField = new javax.swing.JTextField();
+        enderecoImovelField = new javax.swing.JTextField();
+        enviarImovelButton = new javax.swing.JButton();
+        cancelImovelButton = new javax.swing.JButton();
+        precoField = new javax.swing.JFormattedTextField();
+        tipoImovelComboBox = new javax.swing.JComboBox<>();
         ImovelExcluirListar = new javax.swing.JPanel();
         lbTituloImovelExcluir = new javax.swing.JLabel();
         jMenuBar = new javax.swing.JMenuBar();
@@ -76,7 +116,7 @@ public class Telas extends javax.swing.JFrame {
             .addGroup(SistemaTelaInicialLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbSistema)
-                .addContainerGap(1183, Short.MAX_VALUE))
+                .addContainerGap(1182, Short.MAX_VALUE))
         );
         SistemaTelaInicialLayout.setVerticalGroup(
             SistemaTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,23 +128,131 @@ public class Telas extends javax.swing.JFrame {
 
         MainPanel.add(SistemaTelaInicial, "card2");
 
-        lbUsuarioCriar.setText("Card - Usuário");
+        criarUsuarioPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Criar Usuário"));
+
+        id.setText("ID:");
+
+        cpf.setText("CPF:");
+
+        nome.setText("Nome completo:");
+
+        idUsuarioField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idUsuarioFieldActionPerformed(evt);
+            }
+        });
+
+        nomeField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeFieldActionPerformed(evt);
+            }
+        });
+
+        telefone.setText("Telefone:");
+
+        enviarUsuarioButton.setText("Enviar");
+
+        cancelUsuarioButton.setText("Cancelar");
+
+        try {
+            cpfField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            telefoneField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        javax.swing.GroupLayout criarUsuarioPanelLayout = new javax.swing.GroupLayout(criarUsuarioPanel);
+        criarUsuarioPanel.setLayout(criarUsuarioPanelLayout);
+        criarUsuarioPanelLayout.setHorizontalGroup(
+            criarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, criarUsuarioPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(enviarUsuarioButton)
+                .addGap(18, 18, 18)
+                .addComponent(cancelUsuarioButton)
+                .addGap(36, 36, 36))
+            .addGroup(criarUsuarioPanelLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(criarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(criarUsuarioPanelLayout.createSequentialGroup()
+                        .addGroup(criarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cpf)
+                            .addComponent(telefone))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(criarUsuarioPanelLayout.createSequentialGroup()
+                        .addGroup(criarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nome)
+                            .addComponent(nomeField, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
+                        .addGroup(criarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(id)
+                            .addGroup(criarUsuarioPanelLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(idUsuarioField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(113, 113, 113))
+                    .addGroup(criarUsuarioPanelLayout.createSequentialGroup()
+                        .addGroup(criarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cpfField, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(telefoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        criarUsuarioPanelLayout.setVerticalGroup(
+            criarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(criarUsuarioPanelLayout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(criarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, criarUsuarioPanelLayout.createSequentialGroup()
+                        .addComponent(nome)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(nomeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(criarUsuarioPanelLayout.createSequentialGroup()
+                        .addComponent(id)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(idUsuarioField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cpf)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cpfField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(telefone)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(telefoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+                .addGroup(criarUsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enviarUsuarioButton)
+                    .addComponent(cancelUsuarioButton))
+                .addGap(20, 20, 20))
+        );
+
+        lbTituloUsuarioCriar.setText("Card - Usuário Criar");
 
         javax.swing.GroupLayout UsuarioCriarEditarLayout = new javax.swing.GroupLayout(UsuarioCriarEditar);
         UsuarioCriarEditar.setLayout(UsuarioCriarEditarLayout);
         UsuarioCriarEditarLayout.setHorizontalGroup(
             UsuarioCriarEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(UsuarioCriarEditarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbUsuarioCriar)
-                .addContainerGap(1198, Short.MAX_VALUE))
+                .addGroup(UsuarioCriarEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(UsuarioCriarEditarLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(lbTituloUsuarioCriar))
+                    .addGroup(UsuarioCriarEditarLayout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(criarUsuarioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         UsuarioCriarEditarLayout.setVerticalGroup(
             UsuarioCriarEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UsuarioCriarEditarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbUsuarioCriar)
-                .addContainerGap(698, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UsuarioCriarEditarLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(lbTituloUsuarioCriar)
+                .addGap(81, 81, 81)
+                .addComponent(criarUsuarioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         MainPanel.add(UsuarioCriarEditar, "card2");
@@ -132,6 +280,133 @@ public class Telas extends javax.swing.JFrame {
 
         lbTituloContratoCriar.setText("Card - Contrato Criar/Editar");
 
+        criarContratoPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Novo Contrato"));
+
+        idContrato.setText("ID Contrato:");
+
+        cpf1.setText("Imóvel:");
+
+        cliente.setText("Cliente:");
+
+        idContratoField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idContratoFieldActionPerformed(evt);
+            }
+        });
+
+        imovelContratoField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imovelContratoFieldActionPerformed(evt);
+            }
+        });
+
+        clienteContratoField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clienteContratoFieldActionPerformed(evt);
+            }
+        });
+
+        dataContrato.setText("Data do Contrato:");
+
+        enviarContratoButton.setText("Enviar");
+        enviarContratoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enviarContratoButtonActionPerformed(evt);
+            }
+        });
+
+        cancelContratoButton.setText("Cancelar");
+
+        dataFinalizacao.setText("Data de Finalização:");
+
+        statusContrato.setText("Status");
+
+        statusContratoField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statusContratoFieldActionPerformed(evt);
+            }
+        });
+
+        try {
+            dataContratoTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        dataContratoTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        try {
+            dataFinalContratoTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        dataFinalContratoTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        javax.swing.GroupLayout criarContratoPanelLayout = new javax.swing.GroupLayout(criarContratoPanel);
+        criarContratoPanel.setLayout(criarContratoPanelLayout);
+        criarContratoPanelLayout.setHorizontalGroup(
+            criarContratoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, criarContratoPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(enviarContratoButton)
+                .addGap(18, 18, 18)
+                .addComponent(cancelContratoButton)
+                .addGap(36, 36, 36))
+            .addGroup(criarContratoPanelLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(criarContratoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(criarContratoPanelLayout.createSequentialGroup()
+                        .addGroup(criarContratoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dataFinalizacao)
+                            .addComponent(statusContrato)
+                            .addComponent(cpf1)
+                            .addComponent(dataContrato)
+                            .addComponent(cliente))
+                        .addGap(558, 819, Short.MAX_VALUE))
+                    .addGroup(criarContratoPanelLayout.createSequentialGroup()
+                        .addGroup(criarContratoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(statusContratoField, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idContratoField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(clienteContratoField, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(imovelContratoField, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(idContrato)
+                            .addComponent(dataContratoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dataFinalContratoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        criarContratoPanelLayout.setVerticalGroup(
+            criarContratoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(criarContratoPanelLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(idContrato)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(idContratoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(clienteContratoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cpf1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(imovelContratoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(dataContrato)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dataContratoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(dataFinalizacao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dataFinalContratoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(statusContrato)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(statusContratoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addGroup(criarContratoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enviarContratoButton)
+                    .addComponent(cancelContratoButton))
+                .addGap(20, 20, 20))
+        );
+
         javax.swing.GroupLayout ContratoCriarEditarLayout = new javax.swing.GroupLayout(ContratoCriarEditar);
         ContratoCriarEditar.setLayout(ContratoCriarEditarLayout);
         ContratoCriarEditarLayout.setHorizontalGroup(
@@ -139,14 +414,20 @@ public class Telas extends javax.swing.JFrame {
             .addGroup(ContratoCriarEditarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbTituloContratoCriar)
-                .addContainerGap(1128, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ContratoCriarEditarLayout.createSequentialGroup()
+                .addContainerGap(152, Short.MAX_VALUE)
+                .addComponent(criarContratoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(141, 141, 141))
         );
         ContratoCriarEditarLayout.setVerticalGroup(
             ContratoCriarEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ContratoCriarEditarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbTituloContratoCriar)
-                .addContainerGap(698, Short.MAX_VALUE))
+                .addGap(94, 94, 94)
+                .addComponent(criarContratoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         MainPanel.add(ContratoCriarEditar, "card2");
@@ -174,6 +455,105 @@ public class Telas extends javax.swing.JFrame {
 
         lbTituloImovelCriar.setText("Card - Imovel Criar/Editar");
 
+        criarImovelPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Criar Imóvel"));
+
+        idImovel.setText("ID:");
+
+        tipoImovel.setText("Tipo de Imóvel:");
+
+        precoImovel.setText("Preço:");
+
+        enderecoImovel.setText("Endereço:");
+
+        idImovelField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idImovelFieldActionPerformed(evt);
+            }
+        });
+
+        enderecoImovelField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enderecoImovelFieldActionPerformed(evt);
+            }
+        });
+
+        enviarImovelButton.setText("Enviar");
+
+        cancelImovelButton.setText("Cancelar");
+
+        try {
+            precoField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("R$####,##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        tipoImovelComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Casa", "Apartamento", "Imóvel Comercial", "Lote", "Rural", "Outro" }));
+        tipoImovelComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoImovelComboBoxActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout criarImovelPanelLayout = new javax.swing.GroupLayout(criarImovelPanel);
+        criarImovelPanel.setLayout(criarImovelPanelLayout);
+        criarImovelPanelLayout.setHorizontalGroup(
+            criarImovelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, criarImovelPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(enviarImovelButton)
+                .addGap(18, 18, 18)
+                .addComponent(cancelImovelButton)
+                .addGap(36, 36, 36))
+            .addGroup(criarImovelPanelLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(criarImovelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(criarImovelPanelLayout.createSequentialGroup()
+                        .addGroup(criarImovelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(precoImovel)
+                            .addComponent(tipoImovel))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(criarImovelPanelLayout.createSequentialGroup()
+                        .addComponent(precoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(criarImovelPanelLayout.createSequentialGroup()
+                        .addGroup(criarImovelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(tipoImovelComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(enderecoImovel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(enderecoImovelField, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                        .addGroup(criarImovelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(idImovel)
+                            .addComponent(idImovelField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(119, 119, 119))))
+        );
+        criarImovelPanelLayout.setVerticalGroup(
+            criarImovelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(criarImovelPanelLayout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(criarImovelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(criarImovelPanelLayout.createSequentialGroup()
+                        .addComponent(enderecoImovel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(enderecoImovelField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(criarImovelPanelLayout.createSequentialGroup()
+                        .addComponent(idImovel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(idImovelField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(precoImovel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(precoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(tipoImovel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tipoImovelComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+                .addGroup(criarImovelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(enviarImovelButton)
+                    .addComponent(cancelImovelButton))
+                .addGap(20, 20, 20))
+        );
+
         javax.swing.GroupLayout ImovelCriarEditarLayout = new javax.swing.GroupLayout(ImovelCriarEditar);
         ImovelCriarEditar.setLayout(ImovelCriarEditarLayout);
         ImovelCriarEditarLayout.setHorizontalGroup(
@@ -182,6 +562,11 @@ public class Telas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lbTituloImovelCriar)
                 .addContainerGap(1139, Short.MAX_VALUE))
+            .addGroup(ImovelCriarEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ImovelCriarEditarLayout.createSequentialGroup()
+                    .addGap(146, 146, 146)
+                    .addComponent(criarImovelPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(147, Short.MAX_VALUE)))
         );
         ImovelCriarEditarLayout.setVerticalGroup(
             ImovelCriarEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,6 +574,11 @@ public class Telas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lbTituloImovelCriar)
                 .addContainerGap(698, Short.MAX_VALUE))
+            .addGroup(ImovelCriarEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ImovelCriarEditarLayout.createSequentialGroup()
+                    .addGap(112, 112, 112)
+                    .addComponent(criarImovelPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(113, Short.MAX_VALUE)))
         );
 
         MainPanel.add(ImovelCriarEditar, "card2");
@@ -200,16 +590,16 @@ public class Telas extends javax.swing.JFrame {
         ImovelExcluirListarLayout.setHorizontalGroup(
             ImovelExcluirListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ImovelExcluirListarLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(17, 17, 17)
                 .addComponent(lbTituloImovelExcluir)
-                .addContainerGap(1096, Short.MAX_VALUE))
+                .addContainerGap(1086, Short.MAX_VALUE))
         );
         ImovelExcluirListarLayout.setVerticalGroup(
             ImovelExcluirListarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ImovelExcluirListarLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(24, 24, 24)
                 .addComponent(lbTituloImovelExcluir)
-                .addContainerGap(698, Short.MAX_VALUE))
+                .addContainerGap(680, Short.MAX_VALUE))
         );
 
         MainPanel.add(ImovelExcluirListar, "card2");
@@ -298,6 +688,66 @@ public class Telas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jmClienteEditarActionPerformed
 
+    private void nomeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeFieldActionPerformed
+
+    private void idUsuarioFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idUsuarioFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idUsuarioFieldActionPerformed
+
+    private void idContratoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idContratoFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idContratoFieldActionPerformed
+
+    private void imovelContratoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imovelContratoFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_imovelContratoFieldActionPerformed
+
+    private void clienteContratoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteContratoFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clienteContratoFieldActionPerformed
+
+    private void statusContratoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusContratoFieldActionPerformed
+        // TODO add your handling code here:
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            String dataFinalString = dataFinalContratoTextField.getText();
+            if (dataFinalString.trim().equals("") || dataFinalString.contains("_")){
+                statusContratoField.sedText("Data inválida");
+                return;
+            }
+            
+            Date dataFinal = sdf.parse(dataFinalString);
+            Date hoje = new Date();
+            
+            if (hoje.after(dataFinal)){
+                statusContratoField.setText("Inativo");
+            } else {
+                statusContratoField.setText("Ativo");
+            }            
+        }catch(Exception e){
+            statusContratoField.setText("Erro");
+            JOptionPane.showMessageDialog(this, "Formato de data inválido", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_statusContratoFieldActionPerformed
+
+    private void idImovelFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idImovelFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idImovelFieldActionPerformed
+
+    private void enderecoImovelFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enderecoImovelFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enderecoImovelFieldActionPerformed
+
+    private void enviarContratoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarContratoButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enviarContratoButtonActionPerformed
+
+    private void tipoImovelComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoImovelComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipoImovelComboBoxActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -342,6 +792,33 @@ public class Telas extends javax.swing.JFrame {
     private javax.swing.JPanel SistemaTelaInicial;
     private javax.swing.JPanel UsuarioCriarEditar;
     private javax.swing.JPanel UsuarioExcluirListar;
+    private javax.swing.JButton cancelContratoButton;
+    private javax.swing.JButton cancelImovelButton;
+    private javax.swing.JButton cancelUsuarioButton;
+    private javax.swing.JLabel cliente;
+    private javax.swing.JTextField clienteContratoField;
+    private javax.swing.JLabel cpf;
+    private javax.swing.JLabel cpf1;
+    private javax.swing.JFormattedTextField cpfField;
+    private javax.swing.JPanel criarContratoPanel;
+    private javax.swing.JPanel criarImovelPanel;
+    private javax.swing.JPanel criarUsuarioPanel;
+    private javax.swing.JLabel dataContrato;
+    private javax.swing.JFormattedTextField dataContratoTextField;
+    private javax.swing.JFormattedTextField dataFinalContratoTextField;
+    private javax.swing.JLabel dataFinalizacao;
+    private javax.swing.JLabel enderecoImovel;
+    private javax.swing.JTextField enderecoImovelField;
+    private javax.swing.JButton enviarContratoButton;
+    private javax.swing.JButton enviarImovelButton;
+    private javax.swing.JButton enviarUsuarioButton;
+    private javax.swing.JLabel id;
+    private javax.swing.JLabel idContrato;
+    private javax.swing.JTextField idContratoField;
+    private javax.swing.JLabel idImovel;
+    private javax.swing.JTextField idImovelField;
+    private javax.swing.JTextField idUsuarioField;
+    private javax.swing.JTextField imovelContratoField;
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenu jmCliente;
     private javax.swing.JMenuItem jmClienteCadastrar;
@@ -363,7 +840,17 @@ public class Telas extends javax.swing.JFrame {
     private javax.swing.JLabel lbTituloContratoExcluir;
     private javax.swing.JLabel lbTituloImovelCriar;
     private javax.swing.JLabel lbTituloImovelExcluir;
-    private javax.swing.JLabel lbUsuarioCriar;
+    private javax.swing.JLabel lbTituloUsuarioCriar;
     private javax.swing.JLabel lbUsuarioExcluir;
+    private javax.swing.JLabel nome;
+    private javax.swing.JTextField nomeField;
+    private javax.swing.JFormattedTextField precoField;
+    private javax.swing.JLabel precoImovel;
+    private javax.swing.JLabel statusContrato;
+    private javax.swing.JTextField statusContratoField;
+    private javax.swing.JLabel telefone;
+    private javax.swing.JFormattedTextField telefoneField;
+    private javax.swing.JLabel tipoImovel;
+    private javax.swing.JComboBox<String> tipoImovelComboBox;
     // End of variables declaration//GEN-END:variables
 }
