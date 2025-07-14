@@ -44,7 +44,7 @@ public class Telas extends javax.swing.JFrame {
         SistemaTelaInicial = new javax.swing.JPanel();
         lbSistema = new javax.swing.JLabel();
         jlBoasVindas = new javax.swing.JLabel();
-        pnLogo = new javax.swing.JPanel();
+        lbLogo = new javax.swing.JLabel();
         UsuarioCriarEditar = new javax.swing.JPanel();
         lbUsuarioCriar = new javax.swing.JLabel();
         UsuarioExcluirListar = new javax.swing.JPanel();
@@ -71,10 +71,10 @@ public class Telas extends javax.swing.JFrame {
         lbTituloImovelExcluir = new javax.swing.JLabel();
         pnListarImóvel = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tbContratoTabela1 = new javax.swing.JTable();
-        btContratoListar1 = new javax.swing.JButton();
-        btContratoEditar1 = new javax.swing.JButton();
-        btContratoExcluir1 = new javax.swing.JButton();
+        tbImovelTabela = new javax.swing.JTable();
+        btImovelListar = new javax.swing.JButton();
+        btImovelEditar = new javax.swing.JButton();
+        btImovelExcluir = new javax.swing.JButton();
         jMenuBar = new javax.swing.JMenuBar();
         jmSistema = new javax.swing.JMenu();
         jmSistemaTelaInicial = new javax.swing.JMenuItem();
@@ -112,16 +112,7 @@ public class Telas extends javax.swing.JFrame {
         jlBoasVindas.setText("<html>Bem-vindo ao Sistema de <br>Gerenciamento de  Imobiliárias - IMOB</html>");
         jlBoasVindas.setToolTipText("");
 
-        javax.swing.GroupLayout pnLogoLayout = new javax.swing.GroupLayout(pnLogo);
-        pnLogo.setLayout(pnLogoLayout);
-        pnLogoLayout.setHorizontalGroup(
-            pnLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        pnLogoLayout.setVerticalGroup(
-            pnLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        lbLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/rentsystem.png"))); // NOI18N
 
         javax.swing.GroupLayout SistemaTelaInicialLayout = new javax.swing.GroupLayout(SistemaTelaInicial);
         SistemaTelaInicial.setLayout(SistemaTelaInicialLayout);
@@ -139,8 +130,8 @@ public class Telas extends javax.swing.JFrame {
                         .addGap(326, 326, 326))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SistemaTelaInicialLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(582, 582, 582))
+                .addComponent(lbLogo)
+                .addGap(512, 512, 512))
         );
         SistemaTelaInicialLayout.setVerticalGroup(
             SistemaTelaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,9 +140,9 @@ public class Telas extends javax.swing.JFrame {
                 .addComponent(lbSistema)
                 .addGap(58, 58, 58)
                 .addComponent(jlBoasVindas, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pnLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(419, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbLogo)
+                .addContainerGap(275, Short.MAX_VALUE))
         );
 
         MainPanel.add(SistemaTelaInicial, "SistemaTelaInicial");
@@ -396,31 +387,31 @@ public class Telas extends javax.swing.JFrame {
 
         lbTituloImovelExcluir.setText("Card - Imovel Editar/Listar/Excluir");
 
-        pnListarImóvel.setBorder(javax.swing.BorderFactory.createTitledBorder("Listar Contratos"));
+        pnListarImóvel.setBorder(javax.swing.BorderFactory.createTitledBorder("Listar Imóveis"));
 
-        tbContratoTabela1.setModel(new javax.swing.table.DefaultTableModel(
+        tbImovelTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "ID_Imóvel", "Cliente", "Data_do_Contrato", "Data_da_Finalização", "Status"
+                "ID", "Endereço", "Preço", "Tipo"
             }
         ));
-        jScrollPane3.setViewportView(tbContratoTabela1);
+        jScrollPane3.setViewportView(tbImovelTabela);
 
-        btContratoListar1.setText("Listar Contratos");
+        btImovelListar.setText("Listar Imóveis");
 
-        btContratoEditar1.setText("Editar");
-        btContratoEditar1.addActionListener(new java.awt.event.ActionListener() {
+        btImovelEditar.setText("Editar");
+        btImovelEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btContratoEditar1ActionPerformed(evt);
+                btImovelEditarActionPerformed(evt);
             }
         });
 
-        btContratoExcluir1.setText("Excluir");
+        btImovelExcluir.setText("Excluir");
 
         javax.swing.GroupLayout pnListarImóvelLayout = new javax.swing.GroupLayout(pnListarImóvel);
         pnListarImóvel.setLayout(pnListarImóvelLayout);
@@ -430,12 +421,12 @@ public class Telas extends javax.swing.JFrame {
                 .addGroup(pnListarImóvelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnListarImóvelLayout.createSequentialGroup()
                         .addGap(0, 726, Short.MAX_VALUE)
-                        .addComponent(btContratoEditar1)
+                        .addComponent(btImovelEditar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btContratoExcluir1))
+                        .addComponent(btImovelExcluir))
                     .addGroup(pnListarImóvelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btContratoListar1)
+                        .addComponent(btImovelListar)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnListarImóvelLayout.createSequentialGroup()
@@ -447,13 +438,13 @@ public class Telas extends javax.swing.JFrame {
             pnListarImóvelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnListarImóvelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btContratoListar1)
+                .addComponent(btImovelListar)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(pnListarImóvelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btContratoExcluir1)
-                    .addComponent(btContratoEditar1))
+                    .addComponent(btImovelExcluir)
+                    .addComponent(btImovelEditar))
                 .addContainerGap())
         );
 
@@ -622,9 +613,9 @@ public class Telas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btContratoEditarActionPerformed
 
-    private void btContratoEditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btContratoEditar1ActionPerformed
+    private void btImovelEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImovelEditarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btContratoEditar1ActionPerformed
+    }//GEN-LAST:event_btImovelEditarActionPerformed
 
     private void jmSistemaTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSistemaTelaInicialActionPerformed
         // TODO add your handling code here:
@@ -716,11 +707,11 @@ public class Telas extends javax.swing.JFrame {
     private javax.swing.JPanel UsuarioCriarEditar;
     private javax.swing.JPanel UsuarioExcluirListar;
     private javax.swing.JButton btContratoEditar;
-    private javax.swing.JButton btContratoEditar1;
     private javax.swing.JButton btContratoExcluir;
-    private javax.swing.JButton btContratoExcluir1;
     private javax.swing.JButton btContratoListar;
-    private javax.swing.JButton btContratoListar1;
+    private javax.swing.JButton btImovelEditar;
+    private javax.swing.JButton btImovelExcluir;
+    private javax.swing.JButton btImovelListar;
     private javax.swing.JButton btUsuarioEditar;
     private javax.swing.JButton btUsuarioExcluir;
     private javax.swing.JButton btUsuarioListar;
@@ -744,6 +735,7 @@ public class Telas extends javax.swing.JFrame {
     private javax.swing.JMenu jmUsuario;
     private javax.swing.JMenuItem jmUsuarioCriar;
     private javax.swing.JMenuItem jmUsuarioEditar;
+    private javax.swing.JLabel lbLogo;
     private javax.swing.JLabel lbSistema;
     private javax.swing.JLabel lbTituloContratoCriar;
     private javax.swing.JLabel lbTituloContratoExcluir;
@@ -754,9 +746,8 @@ public class Telas extends javax.swing.JFrame {
     private javax.swing.JPanel pnListarContratos;
     private javax.swing.JPanel pnListarImóvel;
     private javax.swing.JPanel pnListarUsuarios;
-    private javax.swing.JPanel pnLogo;
     private javax.swing.JTable tbContratoTabela;
-    private javax.swing.JTable tbContratoTabela1;
+    private javax.swing.JTable tbImovelTabela;
     private javax.swing.JTable tbUsuarioTabela;
     // End of variables declaration//GEN-END:variables
 }
