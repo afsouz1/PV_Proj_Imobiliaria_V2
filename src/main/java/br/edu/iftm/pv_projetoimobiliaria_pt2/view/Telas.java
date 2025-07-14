@@ -1,7 +1,8 @@
 package br.edu.iftm.pv_projetoimobiliaria_pt2.view;
 
-import java.text.SimpleDateFormat;
-import javax.swing.JOptionPane;
+import java.awt.CardLayout;
+import java.awt.Graphics;
+import javax.swing.ImageIcon;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -13,11 +14,18 @@ import javax.swing.JOptionPane;
  * @author AFSOUZA
  */
 public class Telas extends javax.swing.JFrame {
+    
+      
+    CardLayout cl;
+ 
+
+
 
     /**
      * Creates new form Telas
      */
     public Telas() {
+        initComponents();
         initComponents();
     }
 
@@ -714,7 +722,7 @@ public class Telas extends javax.swing.JFrame {
         try {
             String dataFinalString = dataFinalContratoTextField.getText();
             if (dataFinalString.trim().equals("") || dataFinalString.contains("_")){
-                statusContratoField.sedText("Data inválida");
+                statusContratoField.setText("Data inválida");
                 return;
             }
             
@@ -852,5 +860,167 @@ public class Telas extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField telefoneField;
     private javax.swing.JLabel tipoImovel;
     private javax.swing.JComboBox<String> tipoImovelComboBox;
+    // End of variables declaration//GEN-END:variables
+}
+
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+        ImageIcon imagemFundo = new ImageIcon(getClass().getResource("/rentsystem.png"));
+        g.drawImage(imagemFundo.getImage(), 0, 0, getWidth(), getHeight(), this);
+    }
+    
+    private void jmUsuarioCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmUsuarioCriarActionPerformed
+        // TODO add your handling code here:
+        cl.show(MainPanel, "UsuarioCriarEditar");
+
+    }//GEN-LAST:event_jmUsuarioCriarActionPerformed
+
+    private void jmClienteEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmClienteEditarActionPerformed
+        // TODO add your handling code here:
+        cl.show(MainPanel, "");
+
+    }//GEN-LAST:event_jmClienteEditarActionPerformed
+
+    private void btContratoEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btContratoEditarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btContratoEditarActionPerformed
+
+    private void btImovelEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImovelEditarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btImovelEditarActionPerformed
+
+    private void jmSistemaTelaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSistemaTelaInicialActionPerformed
+        // TODO add your handling code here:
+        cl.show(MainPanel, "SistemaTelaInicial");
+
+    }//GEN-LAST:event_jmSistemaTelaInicialActionPerformed
+
+    private void jmSistemaSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmSistemaSairActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jmSistemaSairActionPerformed
+
+    private void jmUsuarioEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmUsuarioEditarActionPerformed
+        // TODO add your handling code here:
+        cl.show(MainPanel, "UsuarioExcluirListar");
+
+    }//GEN-LAST:event_jmUsuarioEditarActionPerformed
+
+    private void jmImovelCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmImovelCadastrarActionPerformed
+        // TODO add your handling code here:
+        cl.show(MainPanel, "ImovelCriarEditar");
+
+    }//GEN-LAST:event_jmImovelCadastrarActionPerformed
+
+    private void jmImovelEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmImovelEditarActionPerformed
+        // TODO add your handling code here:
+        cl.show(MainPanel, "ImovelExcluirListar");
+
+    }//GEN-LAST:event_jmImovelEditarActionPerformed
+
+    private void jmContratoCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmContratoCriarActionPerformed
+        // TODO add your handling code here:
+        cl.show(MainPanel, "ContratoCriarEditar");
+
+    }//GEN-LAST:event_jmContratoCriarActionPerformed
+
+    private void jmContratoListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmContratoListarActionPerformed
+        // TODO add your handling code here:
+        cl.show(MainPanel, "ContratoExcluirListar");
+
+    }//GEN-LAST:event_jmContratoListarActionPerformed
+
+    private void MainPanelComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_MainPanelComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MainPanelComponentAdded
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Telas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Telas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Telas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Telas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Telas().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel ContratoCriarEditar;
+    private javax.swing.JPanel ContratoExcluirListar;
+    private javax.swing.JPanel ImovelCriarEditar;
+    private javax.swing.JPanel ImovelExcluirListar;
+    private javax.swing.JPanel MainPanel;
+    private javax.swing.JPanel SistemaTelaInicial;
+    private javax.swing.JPanel UsuarioCriarEditar;
+    private javax.swing.JPanel UsuarioExcluirListar;
+    private javax.swing.JButton btContratoEditar;
+    private javax.swing.JButton btContratoExcluir;
+    private javax.swing.JButton btContratoListar;
+    private javax.swing.JButton btImovelEditar;
+    private javax.swing.JButton btImovelExcluir;
+    private javax.swing.JButton btImovelListar;
+    private javax.swing.JButton btUsuarioEditar;
+    private javax.swing.JButton btUsuarioExcluir;
+    private javax.swing.JButton btUsuarioListar;
+    private javax.swing.JMenuBar jMenuBar;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel jlBoasVindas;
+    private javax.swing.JMenu jmCliente;
+    private javax.swing.JMenuItem jmClienteCadastrar;
+    private javax.swing.JMenuItem jmClienteEditar;
+    private javax.swing.JMenu jmContrato;
+    private javax.swing.JMenuItem jmContratoCriar;
+    private javax.swing.JMenuItem jmContratoListar;
+    private javax.swing.JMenu jmImovel;
+    private javax.swing.JMenuItem jmImovelCadastrar;
+    private javax.swing.JMenuItem jmImovelEditar;
+    private javax.swing.JMenu jmSistema;
+    private javax.swing.JMenuItem jmSistemaSair;
+    private javax.swing.JMenuItem jmSistemaTelaInicial;
+    private javax.swing.JMenu jmUsuario;
+    private javax.swing.JMenuItem jmUsuarioCriar;
+    private javax.swing.JMenuItem jmUsuarioEditar;
+    private javax.swing.JLabel lbLogo;
+    private javax.swing.JLabel lbSistema;
+    private javax.swing.JLabel lbTituloContratoCriar;
+    private javax.swing.JLabel lbTituloContratoExcluir;
+    private javax.swing.JLabel lbTituloImovelCriar;
+    private javax.swing.JLabel lbTituloImovelExcluir;
+    private javax.swing.JLabel lbUsuarioCriar;
+    private javax.swing.JLabel lbUsuarioExcluir;
+    private javax.swing.JPanel pnListarContratos;
+    private javax.swing.JPanel pnListarImóvel;
+    private javax.swing.JPanel pnListarUsuarios;
+    private javax.swing.JTable tbContratoTabela;
+    private javax.swing.JTable tbImovelTabela;
+    private javax.swing.JTable tbUsuarioTabela;
     // End of variables declaration//GEN-END:variables
 }
